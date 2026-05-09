@@ -12,9 +12,9 @@ class ConcurrentLRUTest {
         lru.put(1, 10);
         lru.put(2, 20);
 
-        assertEquals(10, lru.get(1)); // should return 10
+        assertEquals(10, lru.get(1)); 
 
-        lru.put(3, 30); // evicts key 2
+        lru.put(3, 30); 
         assertEquals(-1, lru.get(2));
         assertEquals(10, lru.get(1));
         assertEquals(30, lru.get(3));
@@ -25,7 +25,7 @@ class ConcurrentLRUTest {
         ConcurrentLRU lru = new ConcurrentLRU(2);
 
         lru.put(1, 10);
-        lru.put(1, 15); // overwrite
+        lru.put(1, 15); 
         assertEquals(15, lru.get(1));
     }
 
@@ -35,7 +35,7 @@ class ConcurrentLRUTest {
 
         lru.put(1, 10);
         lru.put(2, 20);
-        lru.put(3, 30); // evicts 1
+        lru.put(3, 30); 
         assertEquals(-1, lru.get(1));
         assertEquals(20, lru.get(2));
         assertEquals(30, lru.get(3));
